@@ -29,12 +29,18 @@ void swapLeft(int size,vector<int> &arr)
 }
 
 vector<int> rotateLeft(int d, vector<int> &arr) {
-    for(int i=0;i<d;i++)
+    vector<int> temparr;
+     for(int i=0;i<arr.size();i++)
+     {
+         temparr.push_back(-1);
+     }
+     int n=arr.size();
+    for(int i=0;i<n;i++)
     {
-        swapLeft(arr.size(),arr);
-        cout<<" Swap "<<i;
+        temparr.at((i+n-d)%n)=arr.at(i);
     }
-    return arr;    
+    printarray(temparr);
+    return temparr;    
 }
 
 int main()
