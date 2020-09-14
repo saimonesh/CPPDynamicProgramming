@@ -9,7 +9,7 @@ void printarray(vector<int> array)
     }
     cout<<endl;
 }
-void myswap(int loc,int dest,vector<int> arr)
+void swap(int loc,int dest,vector<int> &arr)
 {
     cout<<endl<<"loc ="<<arr.at(loc)<<" dest="<<arr.at(dest)<<endl;
     int temp=arr.at(loc);
@@ -18,20 +18,17 @@ void myswap(int loc,int dest,vector<int> arr)
     printarray(arr);
 }
 
-void swapLeft(int size,vector<int> arr)
+void swapLeft(int size,vector<int> &arr)
 {
     
-    int k=arr.at(0);
-    for(int d=size-1;d>=1;d--)
+    for(int d=0;d<size-1;d++)
     {
-        myswap(d,d-1,arr);
+        swap(d,d+1,arr);
     }
-    arr.at(size-1)=k;
-    printarray(arr);
 
 }
 
-vector<int> rotateLeft(int d, vector<int> arr) {
+vector<int> rotateLeft(int d, vector<int> &arr) {
     for(int i=0;i<d;i++)
     {
         swapLeft(arr.size(),arr);
